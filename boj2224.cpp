@@ -19,14 +19,13 @@ int main() {
 	for (int i = 0; i < TC; i++) {
 		scanf("%c => %c", &src, &dest);
 		getchar();
-		//cout << src << dest << endl;
 		map[src - 'A'][dest - 'A'] = 1;
 	}
 
 	for (int k = 0; k < 58; k++) {
 		for (int i = 0; i < 58; i++) {
 			for (int j = 0; j < 58; j++) {
-				map[i][j] = map[i][j] | (map[i][k] & map[k][j]);
+				map[i][j] = map[i][j] | (map[i][k] & map[k][j]); // using bitwise operation
 			}
 		}
 	}
@@ -40,6 +39,7 @@ int main() {
 	}
 	cout << ans << endl;
 
+	// print answer
 	for (int i = 0; i < 58; i++) {
 		for (int j = 0; j < 58; j++) {
 			if (map[i][j] && i!=j) {
